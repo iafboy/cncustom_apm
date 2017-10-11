@@ -1,0 +1,33 @@
+curl command
+curl -k "https://140.86.0.78/api/auth" -d '{"username":"admin","password":"Welcome1"}'
+
+{
+  "id": 100,
+  "first_name": "",
+  "last_name": "",
+  "username": "admin",
+  "token": "e96e132dbdf2c5205124f726a080148c4e45feac47957033d29a3c34e92ed992",
+  "type": 0,
+  "role": 0,
+  "group": "",
+  "last_password_reset_date": "0001-01-01T00:00:00Z"
+}
+
+
+curl -k -H "Authorization: Session e96e132dbdf2c5205124f726a080148c4e45feac47957033d29a3c34e92ed992" "https://140.86.0.78/api/token"
+{
+  "token": "0829416b6aedfdd9aa50f5eff0e58e8faa4768c4a507bbc04a58b039fd61dc19"
+}
+
+
+curl -k \
+ -X PUT -H "Authorization: Bearer 0829416b6aedfdd9aa50f5eff0e58e8faa4768c4a507bbc04a58b039fd61dc19" \
+ "https://140.86.0.78/api/v2/deployments/Redis-20170923-175443" \
+  -d @scale_deployment.json
+
+
+
+get template file
+http://localhost:8080/occsscalingctr-1.0/GetDeployFileTemplate/MongoDB-20171004-234712
+update scaling
+http://localhost:8080/occsscalingctr-1.0/UpdateDeployScaling/MongoDB-20171004-234712
