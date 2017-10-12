@@ -15,6 +15,7 @@ import org.springframework.http.*;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
@@ -34,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@ApiIgnore
 public class DockerScalingController {
     static Logger logger=LoggerFactory.getLogger(DockerScalingController.class);
     static int initalnumber=1;
